@@ -1,0 +1,105 @@
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:   #2563eb;
+  --primary-d: #1d4ed8;
+  --accent:    #f97316;
+  --dark:      #111827;
+  --gray:      #6b7280;
+  --light:     #f3f4f6;
+  --white:     #ffffff;
+  --danger:    #ef4444;
+  --success:   #22c55e;
+  --radius:    8px;
+  --shadow:    0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+}
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light); color: var(--dark); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; outline: none; }
+
+/* ─── Layout ───────────────────────────────────────────────────────────────── */
+.container  { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.page-wrap  { padding: 30px 16px; max-width: 1200px; margin: 0 auto; }
+.flex       { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 600; transition: all .2s;
+}
+.btn-primary  { background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--primary-d); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-accent   { background: var(--accent); color: var(--white); }
+.btn-accent:hover { opacity: .9; transform: translateY(-1px); }
+.btn-outline  { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: var(--white); }
+.btn-danger   { background: var(--danger); color: var(--white); }
+.btn-danger:hover { opacity: .85; }
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+.btn-full { width: 100%; justify-content: center; }
+
+/* ─── Cards ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+
+/* ─── Form ─────────────────────────────────────────────────────────────────── */
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--gray); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px; border: 1.5px solid #d1d5db; border-radius: var(--radius);
+  font-size: 14px; transition: border-color .2s;
+  background: var(--white); color: var(--dark);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--primary); outline: none; }
+
+/* ─── Badge ────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+}
+.badge-success { background: #dcfce7; color: #15803d; }
+.badge-danger  { background: #fee2e2; color: #dc2626; }
+.badge-info    { background: #dbeafe; color: #1d4ed8; }
+.badge-warn    { background: #fef3c7; color: #b45309; }
+
+/* ─── Grid ─────────────────────────────────────────────────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ─── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner-wrap { display: flex; justify-content: center; align-items: center; padding: 60px; }
+.spinner {
+  width: 40px; height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Misc ─────────────────────────────────────────────────────────────────── */
+.section-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--dark); }
+.text-gray     { color: var(--gray); }
+.text-center   { text-align: center; }
+.mt-4  { margin-top: 16px; }
+.mb-4  { margin-bottom: 16px; }
+.p-4   { padding: 16px; }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--gray); }
+.empty-state h3 { font-size: 20px; margin-bottom: 8px; }
